@@ -6,13 +6,11 @@ const Home = () => {
 
     return (
         <div>
-            <h3>Home page</h3>
             <Banner></Banner>
             <About></About>
             <Helmet>
                 <title>To Do | Home</title>
             </Helmet>
-
         </div >
     );
 };
