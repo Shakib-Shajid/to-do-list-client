@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
-        <div className="hero min-h-[300px] md:min-h-[600px] " style={{ backgroundImage: 'url(../todo-img-1.jpg)' }}>
+        <div className="hero min-h-[300px] md:min-h-[600px]" style={{ backgroundImage: 'url(../todo-img.jpg)' }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-white">
                 <div className="max-w-md">

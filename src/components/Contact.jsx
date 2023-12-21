@@ -10,10 +10,10 @@ const Contact = () => {
             <Helmet>
                 <title>To Do | Contact</title>
             </Helmet>
-            <h3 className="text-3xl font-medium my-3 text-center lg:my-5">Contact with Us</h3>
+            <h3 className="text-3xl font-medium my-5 text-center lg:my-10">Contact with Us</h3>
             <div className="flex md:ml-4 lg:ml-0 justify-center items-center md:gap-10 flex-col lg:flex-row ">
                 <div className="md:w-1/3 mt-5 mx-2 lg:mx-0 ">
-                    <h3 className="text-3xl font-medium ">Check Our Social Media</h3>
+                    <h3 className="text-xl md:text-3xl font-medium ">Check Our Social Media</h3>
                     <p className="my-5">Let's Know more about us. </p>
                     <div className="flex gap-6 flex-col md:flex-row md:justify-center">
                         <div className="border-2 border-gray-400 rounded-xl p-4 my-2">
