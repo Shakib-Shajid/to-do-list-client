@@ -4,7 +4,7 @@ import ErrorPage from '../components/ErrorPage';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import Login from '../components/Login';
-import Main from '../components/Main';
+import Home from '../components/Home';
 import Register from '../components/Register';
 import Dashboard from '../components/Dashboard';
 
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Main></Main>
+                element: <Home></Home>
             },
             {
                 path: '/about',
