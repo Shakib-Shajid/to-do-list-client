@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
 import { IoPeopleSharp } from "react-icons/io5";
 import { useContext } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Dashboard = () => {
 
