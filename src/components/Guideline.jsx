@@ -1,10 +1,10 @@
 import { Helmet } from "react-helmet-async";
 
-const Guidline = () => {
+const Guideline = () => {
     return (
         <div>
             <Helmet>
-                <title>To Do | Guidline</title>
+                <title>To Do | Guideline</title>
             </Helmet>
             <h3 className="text-3xl font-medium my-5 text-center lg:my-10">Who is Our Users</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
@@ -49,4 +49,4 @@ const Guidline = () => {
     );
 };
 
-export default Guidline;
+export default Guideline;

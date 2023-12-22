@@ -1,12 +1,14 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Root from '../layout/Root';
 import ErrorPage from '../components/ErrorPage';
-import Guidline from '../components/Guidline';
+import Guideline from '../components/Guideline';
 import Contact from '../components/Contact';
 import Login from '../components/Login';
 import Home from '../components/Home';
 import Register from '../components/Register';
 import Dashboard from '../components/Dashboard';
+import AddTask from '../components/AddTask';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -19,8 +21,8 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/Guidline',
-                element: <Guidline></Guidline>
+                path: '/Guideline',
+                element: <Guideline></Guideline>
             },
             {
                 path: '/contact',
@@ -36,7 +38,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+            },
+            {
+                path: '/addTask',
+                element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
             }
         ]
     },

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Guidline from "./Guidline";
+import Guideline from "./Guideline";
 import Banner from "./Banner";
 import Contact from "./Contact";
 
@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Guidline></Guidline>
+            <Guideline></Guideline>
             <Contact></Contact>
             <Helmet>
                 <title>To Do | Home</title>
