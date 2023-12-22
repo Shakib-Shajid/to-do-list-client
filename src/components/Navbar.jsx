@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom"
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider"
+import { signOut, getAuth } from "firebase/auth";
+import app from "../firebase/firebase.config";
 
 const Navbar = () => {
 
@@ -7,7 +11,22 @@ const Navbar = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/Guideline">Guideline</Link></li>
             <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/dashboard">Dashboard</Link></li>
         </>
+    const { user, logOut } = useContext(AuthContext);
+
+
+    const handleSignOut = () => {
+        const auth = getAuth(app);
+        logOut()
+            .then()
+            .catch()
+
+        signOut(auth)
+            .then()
+            .catch()
+
+    }
     return (
 
         <div className="navbar bg-base-100 font-medium text-xl top-0 z-50 sticky">
@@ -28,7 +47,26 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/login" className="btn btn-neutral text-white">Login</Link>
+                {
+                    user ? <div className="flex justify-evenly items-center">
+                        <span>{user.displayName} </span>
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img src={user.photoURL} />
+                            </div>
+                        </label>
+                        <button onClick={handleSignOut} className="btn">Sign out</button>
+                    </div>
+
+                        :
+                        <div className="flex items-center gap-4">
+                            <Link to="/login">
+                                <button className="btn">Login</button>
+                            </Link>
+                        </div>
+                }
+
+
             </div>
         </div>
     );

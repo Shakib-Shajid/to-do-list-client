@@ -1,10 +1,62 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useContext, useState } from "react";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 
-    const handleRegister = () => {
-        console.log("register")
+    const [loginError, setloginError] = useState('')
+    const { createUser } = useContext(AuthContext);
+
+    const handleRegister = e => {
+        e.preventDefault();
+        // console.log(e.currentTarget)
+        const form = new FormData(e.currentTarget);
+
+
+        const name = form.get('name');
+        const photo = form.get('photo');
+        const email = form.get('email');
+        const password = form.get('password');
+        // console.log(form.get);
+        console.log(name, photo, email, password);
+        //create user
+        setloginError('');
+
+        if (password.length < 6) {
+            setloginError('please should 6 character in password');
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setloginError('Your password should have one upper at least chareacters')
+            return;
+
+        }
+        // create user
+
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                updateProfile(result.user, {
+                    displayName: name,
+                    photoURL: photo
+                })
+                    .then(res => {
+                        console.log(res);
+                        window.location.reload();
+                    })
+                    .catch(error => {
+                        console.log(error.message);
+                    })
+            })
+            .catch(error => {
+                setloginError(error.message)
+                console.error(error)
+            })
+
+
+
     }
     return (
         <div>

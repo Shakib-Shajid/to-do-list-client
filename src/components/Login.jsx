@@ -1,9 +1,54 @@
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
-    const handleLogin = () => {
-        console.log("login")
+    const [loginError, setloginError] = useState()
+
+    const { signIn } = useContext(AuthContext);
+
+    const handleLogin = e => {
+        e.preventDefault();
+        // console.log(e.currentTarget)
+        const form = new FormData(e.currentTarget);
+
+        const email = form.get('email')
+        const password = form.get('password')
+
+        console.log(email, password);
+        // reset error
+        setloginError('');
+
+
+        //validation korbo
+        if (password.length < 6) {
+            setloginError('please should 6 charaecter')
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            setloginError('Your password should have one upper at least chareacters');
+            return;
+        }
+
+        ////
+
+        signIn(email, password)
+
+            .then(result => {
+
+                console.log(result.user);
+
+                Navigate(location?.state ? location.state : '/')
+
+            })
+            .catch(error => {
+                console.log(error)
+                if (error) {
+                    setloginError(error.message)
+                }
+            })
+
     }
     return (
         <div>

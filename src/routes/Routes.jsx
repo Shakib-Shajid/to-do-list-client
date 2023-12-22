@@ -8,7 +8,7 @@ import Home from '../components/Home';
 import Register from '../components/Register';
 import Dashboard from '../components/Dashboard';
 import AddTask from '../components/AddTask';
-// import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
@@ -38,11 +38,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
             },
             {
                 path: '/addTask',
-                element: <AddTask></AddTask>
+                element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
             }
         ]
     },
