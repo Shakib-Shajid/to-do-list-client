@@ -9,7 +9,7 @@ import Register from '../components/Register';
 import Dashboard from '../components/Dashboard';
 import AddTask from '../components/AddTask';
 import PrivateRoute from './PrivateRoute';
-// import PreviousTask from '../dashboard/PreviousTask'
+import PreviousTask from '../dashboard/PreviousTask'
 import CreateNewTask from '../dashboard/CreateNewTask'
 import UpdateTask from '../dashboard/UpdateTask'
 
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/updateTask/:id',
                 element: <PrivateRoute><UpdateTask></UpdateTask></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/taskOne/${params.id}`)
+                loader: ({ params }) => fetch(`https://to-do-list-server-pi.vercel.app/taskOne/${params.id}`)
             },
         ]
     }

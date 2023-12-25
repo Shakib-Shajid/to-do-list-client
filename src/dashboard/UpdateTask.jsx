@@ -16,32 +16,7 @@ const UpdateTask = () => {
 
     const onSubmit = (data) => {
         console.log(data)
-
-        // const updateInfo = {
-        //     title: data.title,
-        //     descriptions: data.descriptions,
-        //     level: data.level,
-        //     time: data.time,
-        //     date: data.date
-        // }
-
-        // axiosPublic.put(`/task/${_id}`, updateInfo)
-        //     .then(res => {
-        //         console.log('request updated to the data base', res);
-        //         if (res.data.modifiedCount > 0) {
-        //             Swal.fire({
-        //                 position: "top-end",
-        //                 icon: "success",
-        //                 title: "Task Request Update Successful",
-        //                 showConfirmButton: false,
-        //                 timer: 1500
-        //             });
-        //             // window.location.reload();
-        //             navigate(location?.state ? location.state : '/dashboard');
-        //         }
-        //     })
-
-    };
+    }
 
     return (
         <div>
